@@ -49,3 +49,11 @@ if [ -n "$BACKUP_KEEP_DAYS" ]; then
     | xargs -n1 -t -I 'KEY' aws $aws_args s3 rm s3://"${S3_BUCKET}"/'KEY'
   echo "Removal complete."
 fi
+
+if [ -f /post.sh ]; then
+  echo "Running post-backup script."
+  chmod +x /post.sh
+  sh /post.sh
+else
+  echo "No post-backup script found."
+fi
