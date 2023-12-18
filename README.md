@@ -13,6 +13,8 @@ services:
 
   backup:
     image: eeshugerman/postgres-backup-s3:15
+#    volumes:
+#      - ./post.sh:/post.sh  # optionally mount a shell script at /post.sh to be executed after backup is complete, e.g. sending a heartbeat
     environment:
       SCHEDULE: '@weekly'     # optional
       BACKUP_KEEP_DAYS: 7     # optional
