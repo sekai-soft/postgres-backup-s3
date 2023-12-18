@@ -54,6 +54,7 @@ if [ -f /post.sh ]; then
   echo "Running post-backup script."
   chmod +x /post.sh
   sh /post.sh
+  echo "Ran post-backup script."
 else
   echo "No post-backup script found."
 fi
